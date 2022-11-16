@@ -45,7 +45,7 @@ public class Casino implements Runnable {
                     throw new RuntimeException(String.format(errorMessage, accountPassword, accountName));
                 }
             } else if ("Create Account".equals(arcadeDashBoardInput)) {
-                console.println("Welcome to the account-creation screen.");
+                console.println("Welcome to the account creation screen.");
                 String accountName = console.getStringInput("Enter your account name:");
                 String accountPassword = console.getStringInput("Enter your account password:");
                 CasinoAccount newAccount = casinoAccountManager.createAccount(accountName, accountPassword);

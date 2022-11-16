@@ -3,7 +3,6 @@ package com.github.zipcodewilmington.casino;
 import com.github.zipcodewilmington.Casino;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 ///**
@@ -63,6 +62,7 @@ public class CasinoAccountManager {
     public List<CasinoAccount> registerAccount(CasinoAccount newAccount) {
 
         this.casinoAccountList.add(newAccount);
+        //System.out.println(casinoAccountList);
         return this.casinoAccountList;
 //        String currentMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
 //        String currentClassName = getClass().getName();
