@@ -17,6 +17,7 @@ public class NumberGuessPlayer extends Player implements PlayerInterface {
     }
 
     public NumberGuessPlayer() {
+        System.out.println("a");
         play();
     }
 }
