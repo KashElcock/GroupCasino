@@ -11,7 +11,7 @@ import java.util.List;
 // * it is advised that every instruction in this class is logged
 // */
 public class CasinoAccountManager {
-    List<CasinoAccount> casinoAccountList = new ArrayList<>();
+   public static List<CasinoAccount> casinoAccountList = new ArrayList<>();
 //    /**
 //     * @param accountName     name of account to be returned
 //     * @param accountPassword password of account to be returned
