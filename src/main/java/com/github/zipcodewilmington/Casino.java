@@ -23,7 +23,7 @@ public class Casino implements Runnable {
         CasinoAccountManager casinoAccountManager = new CasinoAccountManager();
         do {
             arcadeDashBoardInput = getArcadeDashboardInput();
-            if ("select-game".equals(arcadeDashBoardInput)) {
+            if ("Games".equals(arcadeDashBoardInput)) {
                 String accountName = console.getStringInput("Enter your account name:");
                 String accountPassword = console.getStringInput("Enter your account password:");
                 CasinoAccount casinoAccount = casinoAccountManager.getAccount(accountName, accountPassword);
@@ -44,7 +44,7 @@ public class Casino implements Runnable {
                     String errorMessage = "No account found with name of [ %s ] and password of [ %s ]";
                     throw new RuntimeException(String.format(errorMessage, accountPassword, accountName));
                 }
-            } else if ("create-account".equals(arcadeDashBoardInput)) {
+            } else if ("Create Account".equals(arcadeDashBoardInput)) {
                 console.println("Welcome to the account-creation screen.");
                 String accountName = console.getStringInput("Enter your account name:");
                 String accountPassword = console.getStringInput("Enter your account password:");
@@ -58,7 +58,7 @@ public class Casino implements Runnable {
         return console.getStringInput(new StringBuilder()
                 .append("Welcome to the Arcade Dashboard!")
                 .append("\nFrom here, you can select any of the following options:")
-                .append("\n\t[ create-account ], [ select-game ]")
+                .append("\n\t[ Create Account ], [ Games ]")
                 .toString());
     }
 

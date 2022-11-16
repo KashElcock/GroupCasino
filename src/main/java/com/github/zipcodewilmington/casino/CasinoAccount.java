@@ -11,6 +11,11 @@ public class CasinoAccount {
     private final String accountPassword;
     public int accountBalance;
 
+    public CasinoAccount (String accountName, String accountPassword){
+        this.accountName = accountName;
+        this.accountPassword = accountPassword;
+    }
+
     public CasinoAccount (String accountName, String accountPassword, int accountBalance){
         this.accountName = accountName;
         this.accountPassword = accountPassword;
