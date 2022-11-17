@@ -45,7 +45,7 @@ public class SlotsGame implements GameInterface {
         slot2 = rand.nextInt(10) + 1;
         slot3 = rand.nextInt(10) + 1;
 
-        System.out.println(slot1 + " " + slot2 + " " + slot3);
+        System.out.println(slot1 + " | " + slot2 + " | " + slot3);
 
         if (slot1 == slot2 && slot1 == slot3){
             System.out.println("Winner: $20"); //or could do betAmount * 10

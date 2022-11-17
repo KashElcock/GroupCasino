@@ -1,4 +1,4 @@
 package com.github.zipcodewilmington.casino;
 
-public class Player {
+public abstract class Player {
 }

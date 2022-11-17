@@ -12,7 +12,7 @@ public class CardTest {
     public void cardsConstructorTest() {
         //Given
         CardSuits suit = CardSuits.HEARTS;
-        CardRanks rank = CardRanks.ACE;
+        CardRanks rank = CardRanks.NINE;
 
         //When
         Cards cards = new Cards(suit, rank);

@@ -28,4 +28,8 @@ public class Cards {
     public static CardRanks getRank() {
         return rank;
     }
+
+    public String toString() {
+        return getRank().toString() + " of " + getSuit().toString();
+    }
 }

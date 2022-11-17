@@ -10,12 +10,18 @@ public class DeckOfCards {
     public DeckOfCards() {
         deck = new Stack<>();
 
+//        for (CardSuits cardSuits : CardSuits.values()){
+//            for(CardRanks cardRanks : CardRanks.values()){
+//                deck.push(new Cards(cardSuits, cardRanks));
+//            }
+//        }
+
         for (int i = 0; i < 4; i++){
             CardSuits suit = CardSuits.values()[i];
             for (int j = 0; j < 13; j++){
                 CardRanks rank = CardRanks.values()[j];
                 Cards card = new Cards(suit, rank);
-                deck.push(card);
+                deck.add(card);
             }
         }
         shuffleDeckOfCards();
@@ -25,10 +31,8 @@ public class DeckOfCards {
         Collections.shuffle(deck);
     }
 
-    public void getDeck() {
-        for (Cards card : deck) {
-            System.out.println(Cards.getRank() + " " + Cards.getSuit());
-        }
+    public String getDeck() {
+        return deck.toString();
     }
 
     public Cards dealTopCard() {
@@ -43,7 +47,7 @@ public class DeckOfCards {
         return deck.contains(card);
     }
 
-    public String deckToString() {
+    public String toString() {
         String cardString = "";
         for (Cards card : deck) {
             cardString += card + " ";
