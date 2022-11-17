@@ -4,6 +4,8 @@ import com.github.zipcodewilmington.casino.CasinoAccount;
 import com.github.zipcodewilmington.casino.CasinoAccountManager;
 import com.github.zipcodewilmington.casino.GameInterface;
 import com.github.zipcodewilmington.casino.PlayerInterface;
+import com.github.zipcodewilmington.casino.games.highestrolldice.HighestRollDiceGame;
+import com.github.zipcodewilmington.casino.games.highestrolldice.HighestRollDicePlayer;
 import com.github.zipcodewilmington.casino.games.numberguess.NumberGuessGame;
 import com.github.zipcodewilmington.casino.games.numberguess.NumberGuessPlayer;
 import com.github.zipcodewilmington.casino.games.slots.SlotsGame;
@@ -34,6 +36,8 @@ public class Casino implements Runnable {
                         play(new SlotsGame(), new SlotsPlayer());
                     } else if (gameSelectionInput.equals("NUMBERGUESS")) {
                         play(new NumberGuessGame(), new NumberGuessPlayer());
+                    } else if(gameSelectionInput.equals("HIGHESTROLLDICE")){
+                        play(new HighestRollDiceGame(), new HighestRollDicePlayer());
                     } else {
                         // TODO - implement better exception handling
                         String errorMessage = "[ %s ] is an invalid game selection";
@@ -66,7 +70,7 @@ public class Casino implements Runnable {
         return console.getStringInput(new StringBuilder()
                 .append("Welcome to the Game Selection Dashboard!")
                 .append("\nFrom here, you can select any of the following options:")
-                .append("\n\t[ SLOT MACHINE ], [ NUMBERGUESS ]")
+                .append("\n\t[ SLOT MACHINE ], [ NUMBERGUESS ], [HIGHESTROLLDICE]")
                 .toString());
     }
 
