@@ -52,7 +52,7 @@ public class SlotsGame implements GameInterface {
             // add $20 to player account
         }
         else if (slot1 == slot2 || slot1 == slot3 || slot2 == slot3) {
-            System.out.println("Winner: $10"); //or could dp betAmount * 5
+            System.out.println("Winner: $10"); //or could do betAmount * 5
             // add $10 to player account
         }
         else {

@@ -15,7 +15,7 @@ public class DeckOfCards {
             for (int j = 0; j < 13; j++){
                 CardRanks rank = CardRanks.values()[j];
                 Cards card = new Cards(suit, rank);
-                deck.add(card);
+                deck.push(card);
             }
         }
         shuffleDeckOfCards();
@@ -25,8 +25,10 @@ public class DeckOfCards {
         Collections.shuffle(deck);
     }
 
-    public Stack<Cards> getDeck() {
-        return deck;
+    public void getDeck() {
+        for (Cards card : deck) {
+            System.out.println(Cards.getRank() + " " + Cards.getSuit());
+        }
     }
 
     public Cards dealTopCard() {
@@ -39,5 +41,13 @@ public class DeckOfCards {
 
     public static boolean deckContains(Cards card) {
         return deck.contains(card);
+    }
+
+    public String deckToString() {
+        String cardString = "";
+        for (Cards card : deck) {
+            cardString += card + " ";
+        }
+        return cardString;
     }
 }

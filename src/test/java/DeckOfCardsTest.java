@@ -15,11 +15,13 @@ public class DeckOfCardsTest {
         Assert.assertEquals(52, deck.deckSize());
     }
 
-    @Test
-    public void getDeckTest() {
-        DeckOfCards deck = new DeckOfCards();
-        System.out.println(List.of(deck.getDeck()));
-    }
+//    @Test
+//    public void getDeckTest() {
+//        DeckOfCards deck = new DeckOfCards();
+//        for (Cards card : deck) {
+//            System.out.println(Cards.getRank() + " " + Cards.getSuit());
+//        }
+//    }
 
     @Test
     public void dealTopCardTest() {
