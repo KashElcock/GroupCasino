@@ -9,6 +9,7 @@ public class Dices {
     public Dices(int numberOfDice){
         this.numberOfDice = numberOfDice;
     }
+    public Dices(){}
 
     public Integer tossAndSum(){
         Integer sum = 0 ;
