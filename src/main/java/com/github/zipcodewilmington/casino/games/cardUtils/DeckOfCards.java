@@ -1,24 +1,24 @@
-package com.github.zipcodewilmington.casino.games;
+package com.github.zipcodewilmington.casino.games.cardUtils;
 
 import java.util.Collections;
 import java.util.Stack;
 
 public class DeckOfCards {
 
-    private Stack<Cards> deck;
+    private static Stack<Cards> deck;
 
     public DeckOfCards() {
-        this.deck = new Stack<>();
+        deck = new Stack<>();
 
-        for (int i = 0; i < 13; i++){
-            CardRanks rank = CardRanks.values()[i];
-            for (int j = 0; j < 4; j++){
-                CardSuits suit = CardSuits.values()[j];
+        for (int i = 0; i < 4; i++){
+            CardSuits suit = CardSuits.values()[i];
+            for (int j = 0; j < 13; j++){
+                CardRanks rank = CardRanks.values()[j];
                 Cards card = new Cards(suit, rank);
-                this.deck.add(card);
+                deck.add(card);
             }
         }
-        this.shuffleDeckOfCards();
+        shuffleDeckOfCards();
     }
 
     public void shuffleDeckOfCards() {
@@ -37,7 +37,7 @@ public class DeckOfCards {
         return deck.size();
     }
 
-    public boolean deckContains(Cards card) {
+    public static boolean deckContains(Cards card) {
         return deck.contains(card);
     }
 }
