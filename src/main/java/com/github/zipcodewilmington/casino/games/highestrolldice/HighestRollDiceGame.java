@@ -2,9 +2,10 @@ package com.github.zipcodewilmington.casino.games.highestrolldice;
 
 import com.github.zipcodewilmington.casino.GameInterface;
 import com.github.zipcodewilmington.casino.PlayerInterface;
+import com.github.zipcodewilmington.casino.games.CasinoGames;
 import com.github.zipcodewilmington.casino.games.dices.Dices;
 
-public class HighestRollDiceGame implements GameInterface {
+public class HighestRollDiceGame extends CasinoGames implements GameInterface {
     int aiRollNumber = 0;
     int playerRollNumber = 0;
     String playerInput = "";
