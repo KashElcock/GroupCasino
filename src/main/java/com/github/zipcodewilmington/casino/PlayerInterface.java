@@ -7,11 +7,15 @@ package com.github.zipcodewilmington.casino;
  * All players are capable of `play`ing a game.
  */
 public interface PlayerInterface {
+
+    static void addAccountBalance(double result){
+        CasinoAccount.addAccountBalance(result);
+    }
+
     /**
      * @return the `ArcadeAccount` used to log into the `Arcade` system to play this game
      */
     CasinoAccount getAccount();
-
     /**
      * Defines how a specific implementation of `PlayerInterface` plays their respective game.
      *
@@ -21,9 +25,5 @@ public interface PlayerInterface {
     <SomeReturnType> Object play();
 
     double getResult(double result);
-
-    static void addAccountBalance(double result){
-        CasinoAccount.addAccountBalance(result);
-    }
 }
 
