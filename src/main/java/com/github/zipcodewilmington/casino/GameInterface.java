@@ -1,5 +1,7 @@
 package com.github.zipcodewilmington.casino;
 
+import com.github.zipcodewilmington.casino.games.CasinoGames;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -47,5 +49,4 @@ public interface GameInterface extends Runnable {
         String userInput = sc.nextLine();
         return userInput;
     }
-
 }
