@@ -18,8 +18,8 @@ public class DeckOfCardsTest {
     @Test
     public void getDeckTest() {
         DeckOfCards deck = new DeckOfCards();
+        deck.createDeck();
 
-        
         System.out.println(deck.getDeck());
 
     }
