@@ -19,7 +19,7 @@ import com.github.zipcodewilmington.utils.IOConsole;
  * Created by leon on 7/21/2020.
  */
 public class Casino implements Runnable {
-    private final IOConsole console = new IOConsole(AnsiColor.BLUE);
+    private final IOConsole console = new IOConsole(AnsiColor.CYAN);
 
     @Override
     public void run() {
@@ -27,40 +27,48 @@ public class Casino implements Runnable {
         CasinoAccountManager casinoAccountManager = new CasinoAccountManager();
         do {
             arcadeDashBoardInput = getArcadeDashboardInput();
-            if ("Games".equals(arcadeDashBoardInput)) {
-                String accountName = console.getStringInput("Enter your account name:");
-                String accountPassword = console.getStringInput("Enter your account password:");
-                CasinoAccount casinoAccount = casinoAccountManager.getAccount(accountName, accountPassword);
-                boolean isValidLogin = casinoAccount != null;
-                if (isValidLogin) {
-                    String gameSelectionInput = getGameSelectionInput().toUpperCase();
-                    if (gameSelectionInput.equals("SLOT MACHINE")) {
-                        play(new SlotsGame(), new SlotsPlayer());
-                    } else if (gameSelectionInput.equals("NUMBERGUESS")) {
-                        play(new NumberGuessGame(), new NumberGuessPlayer());
-                    } else if(gameSelectionInput.equals("HIGHESTROLLDICE")){
-                        play(new HighestRollDiceGame(), new HighestRollDicePlayer());
-                    }
-                    else if(gameSelectionInput.equals("ROULETTE")) {
-                        play(new RouletteGame(), new RoulettePlayer());
-                    }
-                    else {
+            try {
+                if ("Games".equals(arcadeDashBoardInput)) {
+                    String accountName = console.getStringInput("Enter your account name:");
+                    String accountPassword = console.getStringInput("Enter your account password:");
+                    CasinoAccount casinoAccount = casinoAccountManager.getAccount(accountName, accountPassword);
+                    boolean isValidLogin = casinoAccount != null;
+                    if (isValidLogin) {
+                        try {
+                            String gameSelectionInput = getGameSelectionInput().toUpperCase();
+                            if (gameSelectionInput.equals("SLOT MACHINE")) {
+                                play(new SlotsGame(), new SlotsPlayer());
+                            } else if (gameSelectionInput.equals("NUMBERGUESS")) {
+                                play(new NumberGuessGame(), new NumberGuessPlayer());
+                            } else if (gameSelectionInput.equals("HIGHESTROLLDICE")) {
+                                play(new HighestRollDiceGame(), new HighestRollDicePlayer());
+                            } else {
+
+                                // TODO - implement better exception handling
+                                String errorMessage = "[ %s ] is an invalid game selection";
+                                throw new RuntimeException(String.format(errorMessage, gameSelectionInput));
+                            }
+                        } catch (RuntimeException e) {
+                            System.out.println("Invalid game selection, please select games that on list.");
+                        }
+
+                    } else {
                         // TODO - implement better exception handling
-                        String errorMessage = "[ %s ] is an invalid game selection";
-                        throw new RuntimeException(String.format(errorMessage, gameSelectionInput));
+                        String errorMessage = "No account found with name of [ %s ] and password of [ %s ]";
+                        throw new RuntimeException(String.format(errorMessage, accountPassword, accountName));
                     }
-                } else {
-                    // TODO - implement better exception handling
-                    String errorMessage = "No account found with name of [ %s ] and password of [ %s ]";
-                    throw new RuntimeException(String.format(errorMessage, accountPassword, accountName));
+                } else if ("Create Account".equals(arcadeDashBoardInput)) {
+                    console.println("Welcome to the account creation screen.");
+                    String accountName = console.getStringInput("Enter your account name:");
+                    String accountPassword = console.getStringInput("Enter your account password:");
+                    CasinoAccount newAccount = casinoAccountManager.createAccount(accountName, accountPassword);
+                    casinoAccountManager.registerAccount(newAccount);
                 }
-            } else if ("Create Account".equals(arcadeDashBoardInput)) {
-                console.println("Welcome to the account creation screen.");
-                String accountName = console.getStringInput("Enter your account name:");
-                String accountPassword = console.getStringInput("Enter your account password:");
-                CasinoAccount newAccount = casinoAccountManager.createAccount(accountName, accountPassword);
-                casinoAccountManager.registerAccount(newAccount);
+            }catch (RuntimeException e){
+                String warning = (e.toString().split(":"))[1];
+                System.out.println(warning);
             }
+
         } while (!"logout".equals(arcadeDashBoardInput));
     }
 
