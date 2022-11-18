@@ -19,7 +19,7 @@ import com.github.zipcodewilmington.utils.IOConsole;
  * Created by leon on 7/21/2020.
  */
 public class Casino implements Runnable {
-    private final IOConsole console = new IOConsole(AnsiColor.CYAN);
+    private final IOConsole console = new IOConsole(AnsiColor.YELLOW);
 
     @Override
     public void run() {
