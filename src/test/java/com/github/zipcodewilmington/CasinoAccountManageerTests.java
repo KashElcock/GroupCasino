@@ -11,7 +11,7 @@ import java.util.List;
 public class CasinoAccountManageerTests {
 
     @Test
-    public void getAcountTest(){
+    public void getAcountTest() {
         //give
         String name = "test1";
         String password = "012";
@@ -22,12 +22,12 @@ public class CasinoAccountManageerTests {
         CasinoAccount tempCa = cam.getAccount(name, password);
 
         //then
-        Assert.assertEquals(name, tempCa.getAccountName() );
+        Assert.assertEquals(name, tempCa.getAccountName());
         Assert.assertEquals(password, tempCa.getAccountPassword());
     }
 
     @Test
-    public void createAccountTest(){
+    public void createAccountTest() {
         //give
         String name = "test2";
         String password = "345";
@@ -38,22 +38,23 @@ public class CasinoAccountManageerTests {
         CasinoAccount tempCa = cam.getAccount(name, password);
 
         //then
-        Assert.assertEquals(name, tempCa.getAccountName() );
+        Assert.assertEquals(name, tempCa.getAccountName());
         Assert.assertEquals(password, tempCa.getAccountPassword());
 
     }
 
     @Test
-    public void registerAccountTest(){
+    public void registerAccountTest() {
         //give
         String accountName = "test3";
         String accountPassword = "678";
         CasinoAccount newAccount = new CasinoAccount(accountName, accountPassword);
         CasinoAccountManager cam = new CasinoAccountManager();
         cam.registerAccount(newAccount);
-        CasinoAccount tempAcc = cam.getAccount(accountName,accountPassword);
+        CasinoAccount tempAcc = cam.getAccount(accountName, accountPassword);
         Assert.assertEquals(accountName, tempAcc.getAccountName());
         Assert.assertEquals(accountPassword, tempAcc.getAccountPassword());
 
     }
+}
 
