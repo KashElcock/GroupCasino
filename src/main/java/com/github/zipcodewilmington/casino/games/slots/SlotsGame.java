@@ -17,7 +17,7 @@ public class SlotsGame extends CasinoGames implements GameInterface {
     int slot2;
     int slot3;
     int input;
-    double balance;
+    public static double balance;
     @Override
     public void add(PlayerInterface player) {
     }
