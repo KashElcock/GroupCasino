@@ -40,4 +40,7 @@ public interface GameInterface extends Runnable {
         int mysteryNumber = new Random().nextInt(10);
         return mysteryNumber;
     }
+
+
+
 }

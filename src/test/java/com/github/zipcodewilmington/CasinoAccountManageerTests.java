@@ -48,6 +48,11 @@ public class CasinoAccountManageerTests {
         //give
         CasinoAccountManager cam = new CasinoAccountManager();
     }
-
+    @Test
+    public void getBalanceTest(){
+        CasinoAccount account = new CasinoAccount();
+        double balance = account.getAccountBalance();
+        Assert.assertEquals(200.00,balance,0.0f);
+    }
 
 }

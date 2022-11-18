@@ -1,6 +1,5 @@
 package com.github.zipcodewilmington.casino.games.slots;
 import com.github.zipcodewilmington.casino.CasinoAccount;
-import com.github.zipcodewilmington.casino.CasinoAccountManager;
 import com.github.zipcodewilmington.casino.Player;
 import com.github.zipcodewilmington.casino.PlayerInterface;
 
@@ -10,7 +9,7 @@ import com.github.zipcodewilmington.casino.PlayerInterface;
 public class SlotsPlayer extends Player implements PlayerInterface {
 
 
-    public CasinoAccountManager getAccount() {
+    public CasinoAccount getAccount() {
         return null;
     }
     public <SomeReturnType> SomeReturnType play() {
