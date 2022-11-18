@@ -14,7 +14,7 @@ public class CasinoAccountManageerTests {
     public void getAcountTest(){
         //give
         String name = "test1";
-        String password = "12345";
+        String password = "012";
         CasinoAccountManager cam = new CasinoAccountManager();
 
         //when
@@ -29,8 +29,8 @@ public class CasinoAccountManageerTests {
     @Test
     public void createAccountTest(){
         //give
-        String name = "test1";
-        String password = "12345";
+        String name = "test2";
+        String password = "345";
         CasinoAccountManager cam = new CasinoAccountManager();
 
         //when
@@ -46,14 +46,14 @@ public class CasinoAccountManageerTests {
     @Test
     public void registerAccountTest(){
         //give
+        String accountName = "test3";
+        String accountPassword = "678";
+        CasinoAccount newAccount = new CasinoAccount(accountName, accountPassword);
         CasinoAccountManager cam = new CasinoAccountManager();
+        cam.registerAccount(newAccount);
+        CasinoAccount tempAcc = cam.getAccount(accountName,accountPassword);
+        Assert.assertEquals(accountName, tempAcc.getAccountName());
+        Assert.assertEquals(accountPassword, tempAcc.getAccountPassword());
+
     }
-    /*
-    @Test
-    public void getBalanceTest(){
-        CasinoAccount account = new CasinoAccount();
-        double balance = account.getAccountBalance();
-        Assert.assertEquals(200.00,balance,0.0f);
-    }
-     */
-}
+
