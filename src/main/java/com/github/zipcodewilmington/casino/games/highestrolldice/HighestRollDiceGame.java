@@ -3,6 +3,7 @@ package com.github.zipcodewilmington.casino.games.highestrolldice;
 import com.github.zipcodewilmington.casino.GameInterface;
 import com.github.zipcodewilmington.casino.PlayerInterface;
 import com.github.zipcodewilmington.casino.games.dices.Dices;
+import java.util.Date;
 
 public class HighestRollDiceGame implements GameInterface {
     int aiRollNumber = 0;
@@ -34,6 +35,12 @@ public class HighestRollDiceGame implements GameInterface {
                     playerInput = "stop";
                     break;
                 }
+                try{
+                    System.out.println("Dices rolling......");
+                    Thread.sleep(2000);
+                }catch (InterruptedException e){
+                    e.printStackTrace();
+                }
 
                 if (aiRollNumber == playerRollNumber) {
                     System.out.println("A.I. rolls " + aiRollNumber + " and player rolls " + playerRollNumber + " tie game, try again!");
@@ -58,7 +65,7 @@ public class HighestRollDiceGame implements GameInterface {
             }
 
             if (playerInput.equals("stop")) {
-                System.out.println("Player stop this game!");
+                System.out.println("Player stop this game! Redirecting to dashboard...... ");
             }
         }
         //public HighestRollDiceGame(){ run();}
