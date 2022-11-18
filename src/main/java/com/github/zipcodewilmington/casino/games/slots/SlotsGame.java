@@ -17,6 +17,7 @@ public class SlotsGame extends CasinoGames implements GameInterface {
     int slot2;
     int slot3;
     int input;
+    double balance;
     @Override
     public void add(PlayerInterface player) {
     }
@@ -31,12 +32,15 @@ public class SlotsGame extends CasinoGames implements GameInterface {
             openingMessage();
             if (userInput() == 2) break;
             pullLever();
+
+            PlayerInterface.addAccountBalance(balance);
+            System.out.println("Casino account balance: " + balance);
         }
 
     }
 
     public void openingMessage() {
-        System.out.println("Welcome to the Slot Machine");
+        System.out.println("Welcome to the Slot Machine, $1 to play and pull the lever");
         System.out.println("Enter 1 to pull lever, 2 to exit the machine");
     }
 
@@ -49,15 +53,16 @@ public class SlotsGame extends CasinoGames implements GameInterface {
         System.out.println(slot1 + " | " + slot2 + " | " + slot3);
 
         if (slot1 == slot2 && slot1 == slot3){
-            System.out.println("Winner: $20"); //or could do betAmount * 10
-            // add $20 to player account
+            System.out.println("Winner: $20");
+            balance += 20;
         }
         else if (slot1 == slot2 || slot1 == slot3 || slot2 == slot3) {
-            System.out.println("Winner: $10"); //or could do betAmount * 5
-            // add $10 to player account
+            System.out.println("Winner: $10");
+            balance += 10;
         }
         else {
             System.out.println("Sorry, try again");
+            balance -= 1;
         }
     }
 

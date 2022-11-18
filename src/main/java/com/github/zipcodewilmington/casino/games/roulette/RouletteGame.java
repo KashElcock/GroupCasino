@@ -2,14 +2,15 @@ package com.github.zipcodewilmington.casino.games.roulette;
 
 import com.github.zipcodewilmington.casino.GameInterface;
 import com.github.zipcodewilmington.casino.PlayerInterface;
+import com.github.zipcodewilmington.casino.games.CasinoGames;
 
 import java.util.Scanner;
 
-public class RouletteGame implements GameInterface {
+public class RouletteGame extends CasinoGames implements GameInterface {
 
     int betAmount;
     int input = 0;
-    int balance = 50;
+    int balance;
     int singleNumber;
 
     @Override
@@ -27,12 +28,14 @@ public class RouletteGame implements GameInterface {
 
         System.out.println("Welcome to Roulette!");
         int betOptionSelected;
+
+        while (true) {
         printBetOptions();
 
             System.out.println("Please select the bet you would like to place. To exit input 0.");
             betOptionSelected = userBetOptionInput();
 
-            while (true) {
+
                 if (betOptionSelected == 0) {
                     break;
                 }
@@ -52,7 +55,10 @@ public class RouletteGame implements GameInterface {
                 result = results.results();
                 playerBetOptionResult(betAmount, results, input);
                 System.out.println("Spin: " + result.getColor());
-                System.out.println("Your balance is now " + balance + " . Select 1 to play again or 0 to exit.");
+
+                PlayerInterface.addAccountBalance((double)(balance));
+                System.out.println("Casino account balance: " + balance);
+
                 int playAgain = userBetOptionInput();
                 if (playAgain == 0) {
                     break;
@@ -87,7 +93,7 @@ public class RouletteGame implements GameInterface {
 
     public void playerBetOptionResult(int betAmount, RoulletteBallResults result, int input) {
 
-        if (input == 1 && result.getColor() == "Red") {this.balance += betAmount;}
+        if (input == 1 && result.getColor() == "Red") {balance += betAmount;}
         else if (input == 2 && result.getColor() == "Black") {this.balance += betAmount;}
         else if (input == 3 && result.getNumber() % 2 == 0) {this.balance += betAmount;}
         else if (input == 4 && result.getNumber() % 2 != 0) {this.balance += betAmount;}
@@ -95,5 +101,6 @@ public class RouletteGame implements GameInterface {
         else if (input == 6 && result.getNumber() >= 1 && result.getNumber() <= 12) {this.balance += balance * (betAmount * 2);}
         else if (input == 7 && result.getNumber() >= 13 && result.getNumber() <= 24) {this.balance += balance * (betAmount * 2);}
         else if (input == 8 && result.getNumber() >= 25 && result.getNumber() <= 36) {this.balance += balance * (betAmount * 2);}
+        else {this.balance -= betAmount;}
     }
 }
