@@ -6,8 +6,8 @@ public class Cards {
     private static CardRanks rank;
 
     public Cards(CardSuits suit, CardRanks rank) {
-        Cards.suit = suit;
-        Cards.rank = rank;
+        this.suit = suit;
+        this.rank = rank;
     }
 
     public Cards(){
@@ -27,5 +27,9 @@ public class Cards {
 
     public static CardRanks getRank() {
         return rank;
+    }
+
+    public String toString() {
+        return getRank().toString() + " of " + getSuit().toString();
     }
 }

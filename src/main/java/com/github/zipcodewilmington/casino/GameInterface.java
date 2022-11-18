@@ -41,10 +41,15 @@ public interface GameInterface extends Runnable {
         return mysteryNumber;
     }
 
+<<<<<<< HEAD
+
+
+=======
     public static String getSringInput(String input){
         Scanner sc = new Scanner(System.in);
         println(input);
         String userInput = sc.nextLine();
         return userInput;
     }
+>>>>>>> 5992dc97161d8c2336e1baf2b9bf2b284ba85ac9
 }

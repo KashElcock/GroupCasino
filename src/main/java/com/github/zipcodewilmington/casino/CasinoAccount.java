@@ -31,9 +31,8 @@ public class CasinoAccount {
         this.accountBalance = accountBalance;
     }
 
-    // A empty constructor
+    // An empty constructor
     public CasinoAccount(){
-
     }
 
     public String getAccountName() {
