@@ -9,7 +9,7 @@ public class RouletteGame implements GameInterface {
 
     int betAmount;
     int input = 0;
-    int balance;
+    int balance = 50;
     int singleNumber;
 
     @Override
@@ -25,27 +25,42 @@ public class RouletteGame implements GameInterface {
     @Override
     public void run() {
 
-        System.out.println("Welcome to Roulette! Please select enter the amount you would like to bet:");
-
+        System.out.println("Welcome to Roulette!");
+        int betOptionSelected = 1;
         printBetOptions();
-        System.out.println("Please select the bet you would like to place. To exit input 0.");
-        userBetOptionInput();
+        while (balance > 0 && betOptionSelected != 0) {
+            System.out.println("Please select the bet you would like to place. To exit input 0.");
+            betOptionSelected = userBetOptionInput();
+        }
+            while (true) {
+                if (betOptionSelected == 0) {
+                    break;
+                }
+                if (betOptionSelected > 8) {
+                    System.out.println("Please enter a valid bet option.");
+                } else if (betOptionSelected == 5) {
+                    System.out.println("What number would you like to bet on, 0-36? (for 00, please select 37)");
+                    singleNumber = userBetOptionInput();
+                } else if (betOptionSelected == 1 || betOptionSelected == 2 || betOptionSelected == 3
+                        || betOptionSelected == 4 || betOptionSelected == 6
+                        || betOptionSelected == 7 || betOptionSelected == 8) {
+                }
+                System.out.println("Please select enter the amount you would like to bet:");
+                userBetAmountInput();
 
-        while (balance > 0){
-            if (userBetOptionInput() == 0) {
-                break;
-            }
-            else if(userBetOptionInput() > 8){
-                System.out.println("Please enter a valid bet option.");
-            }
-            else if (userBetOptionInput() == 5){
-                singleNumber = userBetOptionInput();
+                RouletteBall result;
+                result = results.results();
+                playerBetOptionResult(betAmount, results, input);
+                System.out.println("Spin: " + result.getColor());
+                System.out.println("Your balance is now " + balance + " . Select 1 to play again or 0 to exit.");
+                int playAgain = userBetOptionInput();
+                if (playAgain == 0) {
+                    break;
+                } else {
+                    continue;
+                }
             }
         }
-
-        userBetAmountInput();
-    }
-
     RoulletteBallResults results = new RoulletteBallResults();
 
     public void printBetOptions() {
@@ -70,13 +85,13 @@ public class RouletteGame implements GameInterface {
         betAmount = scan.nextInt();
     }
 
-    public void playerBetOptionResult(int betAmount, RouletteBall result, int input) {
+    public void playerBetOptionResult(int betAmount, RoulletteBallResults result, int input) {
 
-        if (input == 1 && result.getColor() = "Red") {this.balance += betAmount;}
-        else if (input == 2 && result.getColor() = "Black") {this.balance += betAmount;}
-        else if (input == 3 && result.getNumber() % 2 = 0) {this.balance += betAmount;}
+        if (input == 1 && result.getColor() == "Red") {this.balance += betAmount;}
+        else if (input == 2 && result.getColor() == "Black") {this.balance += betAmount;}
+        else if (input == 3 && result.getNumber() % 2 == 0) {this.balance += betAmount;}
         else if (input == 4 && result.getNumber() % 2 != 0) {this.balance += betAmount;}
-        else if (input == 5 && result.getNumber() = singleNumber) {this.balance += balance * (betAmount * 35);}
+        else if (input == 5 && result.getNumber() == singleNumber) {this.balance += balance * (betAmount * 35);}
         else if (input == 6 && result.getNumber() >= 1 && result.getNumber() <= 12) {this.balance += balance * (betAmount * 2);}
         else if (input == 7 && result.getNumber() >= 13 && result.getNumber() <= 24) {this.balance += balance * (betAmount * 2);}
         else if (input == 8 && result.getNumber() >= 25 && result.getNumber() <= 36) {this.balance += balance * (betAmount * 2);}
