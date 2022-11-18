@@ -39,6 +39,7 @@ public class NumberGuessGame extends CasinoGames implements GameInterface {
                     System.out.println("You Win! Correct guess :)");
                     setGameResult(10-numberOfTries);
                     System.out.println("You've won $" + (int) getGameResult());
+                    PlayerInterface.addAccountBalance(getGameResult());
                     System.out.println("\nIt took you " + numberOfTries + " tries!");
                 } else if (mostRecentGuess < mysteryNumber) {
                     numberOfTries++;
@@ -49,7 +50,6 @@ public class NumberGuessGame extends CasinoGames implements GameInterface {
                 }
             }
             previousGuess = mostRecentGuess;
-            PlayerInterface.addAccountBalance(getGameResult());
             System.out.println("ACCOUNT BAL IS:" + accountBalance);
         }
     }
