@@ -18,7 +18,9 @@ public class RoulletteBallResults extends RouletteBall {
         Random rand = new Random();
         int numberResult = rand.nextInt(38); //int 00 == int 37
 
-
+        results.setNumber(numberResult);
+        results.setColor(colorResult(numberResult));
+        results.setEven(evenOddResult(numberResult));
         return results;
     }
 
