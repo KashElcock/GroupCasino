@@ -8,6 +8,8 @@ import com.github.zipcodewilmington.casino.games.highestrolldice.HighestRollDice
 import com.github.zipcodewilmington.casino.games.highestrolldice.HighestRollDicePlayer;
 import com.github.zipcodewilmington.casino.games.numberguess.NumberGuessGame;
 import com.github.zipcodewilmington.casino.games.numberguess.NumberGuessPlayer;
+import com.github.zipcodewilmington.casino.games.roulette.RouletteGame;
+import com.github.zipcodewilmington.casino.games.roulette.RoulettePlayer;
 import com.github.zipcodewilmington.casino.games.slots.SlotsGame;
 import com.github.zipcodewilmington.casino.games.slots.SlotsPlayer;
 import com.github.zipcodewilmington.utils.AnsiColor;
@@ -82,7 +84,7 @@ public class Casino implements Runnable {
         return console.getStringInput(new StringBuilder()
                 .append("Welcome to the Game Selection Dashboard!")
                 .append("\nFrom here, you can select any of the following options:")
-                .append("\n\t[ SLOT MACHINE ], [ NUMBERGUESS ], [HIGHESTROLLDICE]")
+                .append("\n\t[ SLOT MACHINE ], [ NUMBERGUESS ], [HIGHESTROLLDICE], [ROULETTE]")
                 .toString());
     }
 

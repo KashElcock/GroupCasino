@@ -49,5 +49,4 @@ public interface GameInterface extends Runnable {
         String userInput = sc.nextLine();
         return userInput;
     }
-
 }
