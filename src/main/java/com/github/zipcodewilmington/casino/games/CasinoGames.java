@@ -1,5 +1,4 @@
 package com.github.zipcodewilmington.casino.games;
-
 public abstract class CasinoGames {
 
     public double getGameResult() {

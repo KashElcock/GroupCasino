@@ -1,7 +1,5 @@
 package com.github.zipcodewilmington.casino;
 
-import java.util.ArrayList;
-
 /**
  * Created by leon on 7/21/2020.
  * All players of a game should abide by `PlayerInterface`.
@@ -16,9 +14,16 @@ public interface PlayerInterface {
 
     /**
      * Defines how a specific implementation of `PlayerInterface` plays their respective game.
+     *
      * @param <SomeReturnType> specify any return type you would like here
      * @return whatever return value you would like
      */
-    <SomeReturnType> SomeReturnType play();
+    <SomeReturnType> Object play();
+
+    double getResult(double result);
+
+    static void addAccountBalance(double result){
+        CasinoAccount.addAccountBalance(result);
+    }
 }
 

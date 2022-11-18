@@ -10,6 +10,7 @@ package com.github.zipcodewilmington.casino;
  * Liu: I change all int to double
  */
 public class CasinoAccount {
+    public static double accountBalance;
     // test result: cannot assign a value to final variable
     // private final String accountName;
     private String accountName;
@@ -17,7 +18,7 @@ public class CasinoAccount {
     //private final String accountPassword;
     private String accountPassword;
     //Liu: I set 200 as default value of accountBalance for test purpose
-    public double accountBalance = 200.00;
+
 
 
     public CasinoAccount (String accountName, String accountPassword){
@@ -28,7 +29,7 @@ public class CasinoAccount {
     public CasinoAccount (String accountName, String accountPassword, double accountBalance){
         this.accountName = accountName;
         this.accountPassword = accountPassword;
-        this.accountBalance = accountBalance;
+        CasinoAccount.accountBalance = accountBalance;
     }
 
     // An empty constructor
@@ -47,7 +48,7 @@ public class CasinoAccount {
         return accountBalance;
     }
 
-    public void addAccountBalance(double amount){
+    public static void addAccountBalance(double amount){
         accountBalance += amount;
     }
 
