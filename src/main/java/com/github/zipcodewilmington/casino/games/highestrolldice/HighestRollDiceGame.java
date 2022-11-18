@@ -102,6 +102,7 @@ public class HighestRollDiceGame extends CasinoGames implements GameInterface {
                 System.out.println("Player stop this game! Redirecting to dashboard...... ");
             }
         }
+        PlayerInterface.addAccountBalance(playerBalance);
 
     }
         //public HighestRollDiceGame(){ run();}
