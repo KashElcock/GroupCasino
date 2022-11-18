@@ -40,4 +40,11 @@ public interface GameInterface extends Runnable {
         int mysteryNumber = new Random().nextInt(10);
         return mysteryNumber;
     }
+
+    public static String getSringInput(String input){
+        Scanner sc = new Scanner(System.in);
+        println(input);
+        String userInput = sc.nextLine();
+        return userInput;
+    }
 }
