@@ -10,14 +10,15 @@ package com.github.zipcodewilmington.casino;
  * Liu: I change all int to double
  */
 public class CasinoAccount {
-    public static double accountBalance;
+    //Liu: I set 200 as default value of accountBalance for test purpose
+    public static double accountBalance = 200.00;
     // test result: cannot assign a value to final variable
     // private final String accountName;
     private String accountName;
     // test result: cannot assign a value to final variable
     //private final String accountPassword;
     private String accountPassword;
-    //Liu: I set 200 as default value of accountBalance for test purpose
+
 
 
 
