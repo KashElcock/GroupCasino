@@ -15,24 +15,26 @@ public class DeckOfCards {
 //                deck.push(new Cards(cardSuits, cardRanks));
 //            }
 //        }
+        shuffleDeckOfCards();
+    }
 
+    public void createDeck() {
         for (int i = 0; i < 4; i++){
             CardSuits suit = CardSuits.values()[i];
             for (int j = 0; j < 13; j++){
                 CardRanks rank = CardRanks.values()[j];
                 Cards card = new Cards(suit, rank);
-                deck.add(card);
+                deck.push(card);
             }
         }
-        shuffleDeckOfCards();
     }
 
     public void shuffleDeckOfCards() {
         Collections.shuffle(deck);
     }
 
-    public String getDeck() {
-        return deck.toString();
+    public Stack<Cards> getDeck() {
+        return deck;
     }
 
     public Cards dealTopCard() {
