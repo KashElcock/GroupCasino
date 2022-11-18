@@ -9,38 +9,43 @@ import java.util.List;
 
 public class DeckOfCardsTest {
 
-    @Test
-    public void deckOfCardsConstructorTest() {
-        DeckOfCards deck = new DeckOfCards();
-        Assert.assertEquals(52, deck.deckSize());
-    }
+
+//    @Test
+//    public void getDeckTest() {
+//        DeckOfCards deck = new DeckOfCards();
+//        for (Cards card : deck) {
+//            System.out.println(Cards.getRank() + " " + Cards.getSuit());
+//        }
+//    }
+
+//    @Test
+//    public void dealTopCardTest() {
+//        DeckOfCards deck = new DeckOfCards();
+//
+//        Cards actual = deck.dealTopCard();
+//
+//        System.out.println(deck.dealTopCard());
+//        Assert.assertFalse(DeckOfCards.deckContains(actual));
+//    }
+
+//    @Test
+//    public void deckSizeTest() {
+//        DeckOfCards deck = new DeckOfCards();
+//
+//        int expected = 52;
+//
+//        Assert.assertEquals(expected, deck.deckSize());
+    //   }
 
     @Test
-    public void getDeckTest() {
-        DeckOfCards deck = new DeckOfCards();
-        deck.createDeck();
-
-        System.out.println(deck.getDeck());
-
-    }
-
-    @Test
-    public void dealTopCardTest() {
+    public void shufflecardTest() {
         DeckOfCards deck = new DeckOfCards();
 
-        Cards actual = deck.dealTopCard();
+        deck.DeckOfCards();
 
-        System.out.println(deck.dealTopCard());
-        Assert.assertFalse(DeckOfCards.deckContains(actual));
-    }
+        System.out.println(deck);
+        //Assert.assertFalse(DeckOfCards.deckContains(actual))
 
-    @Test
-    public void deckSizeTest() {
-        DeckOfCards deck = new DeckOfCards();
-
-        int expected = 52;
-
-        Assert.assertEquals(expected, deck.deckSize());
     }
 
 //    @Test
