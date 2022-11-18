@@ -26,12 +26,12 @@ public class RouletteGame implements GameInterface {
     public void run() {
 
         System.out.println("Welcome to Roulette!");
-        int betOptionSelected = 1;
+        int betOptionSelected;
         printBetOptions();
-        while (balance > 0 && betOptionSelected != 0) {
+
             System.out.println("Please select the bet you would like to place. To exit input 0.");
             betOptionSelected = userBetOptionInput();
-        }
+
             while (true) {
                 if (betOptionSelected == 0) {
                     break;
