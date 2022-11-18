@@ -10,7 +10,12 @@ public class RoulettePlayer extends Player implements PlayerInterface {
     public CasinoAccount getAccount() {
         return null;
     }
-    public <SomeReturnType> SomeReturnType play() {
+    public <SomeReturnType> Object play() {
         return null;
+    }
+
+    @Override
+    public double getResult(double result) {
+        return 0;
     }
 }
