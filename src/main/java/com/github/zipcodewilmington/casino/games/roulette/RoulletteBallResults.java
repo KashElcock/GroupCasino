@@ -33,14 +33,14 @@ public class RoulletteBallResults extends RouletteBall {
         String color = null;
 
         if (wheelSpinOutcome == 0 || wheelSpinOutcome == 37) {
-            color = "Green" + " " + wheelSpinOutcome + "\n";
+            color = "Green";
         }
         else if (checker.contains(Integer.toString(wheelSpinOutcome))) {
-            color = "Red" + " " + wheelSpinOutcome + "\n";
+            color = "Red";
         }
         else
-            color = "Black" + " " + wheelSpinOutcome + "\n";
-        return color;
+            color = "Black";
+        return color; //+ " " + wheelSpinOutcome + "\n";
     }
 
     public boolean evenOddResult(int wheelSpinOutcome){

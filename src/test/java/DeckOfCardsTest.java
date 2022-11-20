@@ -10,51 +10,53 @@ import java.util.List;
 public class DeckOfCardsTest {
 
 
-//    @Test
-//    public void getDeckTest() {
-//        DeckOfCards deck = new DeckOfCards();
-//        for (Cards card : deck) {
-//            System.out.println(Cards.getRank() + " " + Cards.getSuit());
-//        }
-//    }
-
-//    @Test
-//    public void dealTopCardTest() {
-//        DeckOfCards deck = new DeckOfCards();
-//
-//        Cards actual = deck.dealTopCard();
-//
-//        System.out.println(deck.dealTopCard());
-//        Assert.assertFalse(DeckOfCards.deckContains(actual));
-//    }
-
-//    @Test
-//    public void deckSizeTest() {
-//        DeckOfCards deck = new DeckOfCards();
-//
-//        int expected = 52;
-//
-//        Assert.assertEquals(expected, deck.deckSize());
-    //   }
-
     @Test
-    public void shufflecardTest() {
+    public void getDeckTest() {
         DeckOfCards deck = new DeckOfCards();
-
-        deck.DeckOfCards();
-
-        System.out.println(deck);
-        //Assert.assertFalse(DeckOfCards.deckContains(actual))
-
+        for (Cards card : deck) {
+            System.out.println(Cards.getRank() + " " + Cards.getSuit());
+        }
     }
 
+    @Test
+    public void dealTopCardTest() {
+        DeckOfCards deck = new DeckOfCards();
+
+        Cards actual = deck.dealTopCard();
+
+        System.out.println(deck.dealTopCard());
+        Assert.assertFalse(DeckOfCards.deckContains(actual));
+    }
+
+    @Test
+    public void deckSizeTest() {
+        DeckOfCards deck = new DeckOfCards();
+
+        int expected = 52;
+
+        Assert.assertEquals(expected, deck.deckSize());
+       }
+
+
+    @Test
+    public void deckContainsTest() {
+        DeckOfCards deck = new DeckOfCards();
+        CardSuits suit = CardSuits.DIAMONDS;
+        CardRanks rank = CardRanks.NINE;
+        Cards card = new Cards(suit, rank);
+
+        Assert.assertTrue(DeckOfCards.deckContains(card));
+    }
+
+
 //    @Test
-//    public void deckContainsTest() {
+//    public void shufflecardTest() {
 //        DeckOfCards deck = new DeckOfCards();
-//        CardSuits suit = CardSuits.DIAMONDS;
-//        CardRanks rank = CardRanks.NINE;
-//        Cards card = new Cards(suit, rank);
 //
-//        Assert.assertTrue(DeckOfCards.deckContains(card));
+//        deck.DeckOfCards();
+//
+//        System.out.println(deck);
+//        //Assert.assertFalse(DeckOfCards.deckContains(actual))
+//
 //    }
 }

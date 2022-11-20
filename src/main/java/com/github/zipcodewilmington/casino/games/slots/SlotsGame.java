@@ -1,7 +1,6 @@
 package com.github.zipcodewilmington.casino.games.slots;
 
-import com.github.zipcodewilmington.casino.GameInterface;
-import com.github.zipcodewilmington.casino.PlayerInterface;
+import com.github.zipcodewilmington.casino.*;
 import com.github.zipcodewilmington.casino.games.CasinoGames;
 
 import java.util.Random;
@@ -35,6 +34,7 @@ public class SlotsGame extends CasinoGames implements GameInterface {
 
             PlayerInterface.addAccountBalance(balance);
             System.out.println("Casino account balance: " + balance);
+
         }
 
     }
