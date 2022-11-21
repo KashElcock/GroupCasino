@@ -1,10 +1,8 @@
 package com.github.zipcodewilmington.casino.games.numberguess;
-import com.github.zipcodewilmington.casino.CasinoAccount;
 import com.github.zipcodewilmington.casino.GameInterface;
 import com.github.zipcodewilmington.casino.PlayerInterface;
 import com.github.zipcodewilmington.casino.games.CasinoGames;
 
-import static com.github.zipcodewilmington.casino.CasinoAccount.accountBalance;
 
 /**
  * Created by leon on 7/21/2020.
@@ -23,7 +21,6 @@ public class NumberGuessGame extends CasinoGames implements GameInterface {
     }
 
     public void run() {
-        PlayerInterface player1 = new NumberGuessPlayer();
         int previousGuess = 0;
         int numberOfTries = 0;
         int mostRecentGuess = 0;
@@ -39,7 +36,7 @@ public class NumberGuessGame extends CasinoGames implements GameInterface {
                     System.out.println("You Win! Correct guess :)");
                     setGameResult(10-numberOfTries);
                     System.out.println("You've won $" + (int) getGameResult());
-                    PlayerInterface.addAccountBalance(getGameResult());
+                  //  PlayerInterface.addAccountBalance(getGameResult());
                     System.out.println("\nIt took you " + numberOfTries + " tries!");
                 } else if (mostRecentGuess < mysteryNumber) {
                     numberOfTries++;
@@ -50,7 +47,7 @@ public class NumberGuessGame extends CasinoGames implements GameInterface {
                 }
             }
             previousGuess = mostRecentGuess;
-            System.out.println("ACCOUNT BAL IS:" + accountBalance);
+           // System.out.println("ACCOUNT BAL IS:" + accountBalance);
         }
     }
 }

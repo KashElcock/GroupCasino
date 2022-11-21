@@ -6,6 +6,14 @@ import com.github.zipcodewilmington.casino.PlayerInterface;
 
 public class HighestRollDicePlayer extends Player implements PlayerInterface {
 
+    public HighestRollDicePlayer(String accountName, String accountPassword) {
+        super(accountName, accountPassword);
+    }
+
+    public HighestRollDicePlayer(String accountName, String accountPassword, double accountBalance) {
+        super(accountName, accountPassword, accountBalance);
+    }
+
     public CasinoAccount getAccount() {
         return null;
     }

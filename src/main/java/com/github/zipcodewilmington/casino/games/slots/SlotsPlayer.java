@@ -9,6 +9,14 @@ import com.github.zipcodewilmington.casino.PlayerInterface;
 public class SlotsPlayer extends Player implements PlayerInterface {
 
 
+    public SlotsPlayer(String accountName, String accountPassword) {
+        super(accountName, accountPassword);
+    }
+
+    public SlotsPlayer(String accountName, String accountPassword, double accountBalance) {
+        super(accountName, accountPassword, accountBalance);
+    }
+
     public CasinoAccount getAccount() {
         return null;
     }

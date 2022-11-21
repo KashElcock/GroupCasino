@@ -29,21 +29,22 @@ public class Casino implements Runnable {
             arcadeDashBoardInput = getArcadeDashboardInput();
             try {
                 if ("Games".equals(arcadeDashBoardInput)) {
-                    String accountName = console.getStringInput("Enter your account name:");
-                    String accountPassword = console.getStringInput("Enter your account password:");
-                    CasinoAccount casinoAccount = casinoAccountManager.getAccount(accountName, accountPassword);
+                    String accountName = CasinoAccountManager.casinoAccountList.get(0).getAccountName();
+                    String accountPassword = CasinoAccountManager.casinoAccountList.get(0).getAccountPassword();
+                    CasinoAccount casinoAccount = CasinoAccountManager.casinoAccountList.get(0);
+                    System.out.println("Welcome to the Casino "+accountName+"!");
                     boolean isValidLogin = casinoAccount != null;
                     if (isValidLogin) {
                         try {
                             String gameSelectionInput = getGameSelectionInput().toUpperCase();
                             if (gameSelectionInput.equals("SLOT MACHINE")) {
-                                play(new SlotsGame(), new SlotsPlayer());
+                                play(new SlotsGame(), new SlotsPlayer(accountName, accountPassword));
                             } else if (gameSelectionInput.equals("NUMBERGUESS")) {
-                                play(new NumberGuessGame(), new NumberGuessPlayer());
+                                play(new NumberGuessGame(), new NumberGuessPlayer(accountName, accountPassword));
                             } else if (gameSelectionInput.equals("HIGHESTROLLDICE")) {
-                                play(new HighestRollDiceGame(), new HighestRollDicePlayer());
+                                play(new HighestRollDiceGame(), new HighestRollDicePlayer(accountName, accountPassword));
                             } else if (gameSelectionInput.equals("ROULETTE")) {
-                                play(new RouletteGame(), new RoulettePlayer());
+                                play(new RouletteGame(), new RoulettePlayer(accountName, accountPassword));
                             } else {
 
                                 // TODO - implement better exception handling
@@ -57,7 +58,7 @@ public class Casino implements Runnable {
                     } else {
                         // TODO - implement better exception handling
                         String errorMessage = "No account found with name of [ %s ] and password of [ %s ]";
-                        throw new RuntimeException(String.format(errorMessage, accountPassword, accountName));
+                        throw new RuntimeException(String.format(errorMessage, "accountName", "accountPassword"));
                     }
                 } else if ("Create Account".equals(arcadeDashBoardInput)) {
                     console.println("Welcome to the account creation screen.");
@@ -76,16 +77,16 @@ public class Casino implements Runnable {
 
     private String getArcadeDashboardInput() {
         return console.getStringInput(new StringBuilder()
-                .append("Welcome to the Arcade Dashboard!")
+                .append("Welcome to the Casino!")
                 .append("\nFrom here, you can select any of the following options:")
-                .append("\n\t[ Create Account ], [ Games ]")
+                .append("\n\t[ Create A New Account ], [ Select Game ]")
                 .toString());
     }
 
     private String getGameSelectionInput() {
         return console.getStringInput(new StringBuilder()
-                .append("Welcome to the Game Selection Dashboard!")
-                .append("\nFrom here, you can select any of the following options:")
+                //.append("Welcome to the Game Selection Dashboard!")
+                .append("From here, you can select any of the following games:")
                 .append("\n\t[ SLOT MACHINE ], [ NUMBERGUESS ], [HIGHESTROLLDICE], [ROULETTE]")
                 .toString());
     }

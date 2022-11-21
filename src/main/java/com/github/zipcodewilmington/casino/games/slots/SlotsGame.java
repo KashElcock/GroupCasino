@@ -32,7 +32,7 @@ public class SlotsGame extends CasinoGames implements GameInterface {
             if (userInput() == 2) break;
             pullLever();
 
-            PlayerInterface.addAccountBalance(balance);
+            //PlayerInterface.addAccountBalance(balance);
             System.out.println("Casino account balance: " + balance);
 
         }

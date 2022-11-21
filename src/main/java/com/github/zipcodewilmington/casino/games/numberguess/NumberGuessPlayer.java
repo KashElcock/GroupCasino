@@ -9,6 +9,14 @@ import com.github.zipcodewilmington.casino.PlayerInterface;
 public class NumberGuessPlayer extends Player implements PlayerInterface {
 
 
+    public NumberGuessPlayer(String accountName, String accountPassword) {
+        super(accountName, accountPassword);
+    }
+
+    public NumberGuessPlayer(String accountName, String accountPassword, double accountBalance) {
+        super(accountName, accountPassword, accountBalance);
+    }
+
     @Override
     public CasinoAccount getAccount() {
         return null;
@@ -21,8 +29,5 @@ public class NumberGuessPlayer extends Player implements PlayerInterface {
     @Override
     public double getResult(double result) {
         return 0;
-    }
-
-    public NumberGuessPlayer() {
     }
 }

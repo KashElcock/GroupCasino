@@ -8,10 +8,6 @@ package com.github.zipcodewilmington.casino;
  */
 public interface PlayerInterface {
 
-    static void addAccountBalance(double result){
-        CasinoAccount.addAccountBalance(result);
-    }
-
     /**
      * @return the `ArcadeAccount` used to log into the `Arcade` system to play this game
      */
